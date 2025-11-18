@@ -1,9 +1,9 @@
 # Proyecto de Limpieza y Análisis del Dataset Dirty Cafe Sales
 
-## 📌 Descripción del Proyecto  
-Este proyecto tiene como objetivo realizar un proceso completo de *limpieza de datos, **transformación, y **análisis exploratorio (EDA)* sobre el dataset Dirty Cafe Sales, un conjunto de datos diseñado específicamente para practicar habilidades de Data Cleaning y Wrangling.  
+##  Descripción del Proyecto  
+Este proyecto tiene como objetivo realizar un proceso completo de **limpieza de datos**, **transformación**, y **análisis exploratorio (EDA)** sobre el dataset Dirty Cafe Sales, un conjunto de datos diseñado específicamente para practicar habilidades de Data Cleaning y Wrangling.  
 
-El trabajo se desarrolló en *Google Colab, utilizando **Python, **Pandas, **NumPy* y otras librerías del ecosistema científico.
+El trabajo se desarrolló en **Google Colab**, utilizando **Python**, **Pandas**, **NumPy** y otras librerías del ecosistema científico.
 
 El resultado final es una base de datos completamente limpia, estructurada y lista para análisis más avanzados, como visualizaciones, modelos descriptivos o modelado predictivo.
 
@@ -14,7 +14,7 @@ El resultado final es una base de datos completamente limpia, estructurada y lis
 El dataset *Dirty Cafe Sales* contiene *10,000 registros* sintéticos sobre transacciones realizadas en un café.  
 Fue creado de forma intencionalmente “sucia”, es decir, incluye valores faltantes, inconsistentes y errores comunes en datos reales, con el fin de practicar técnicas de limpieza.
 
-### 📄 Archivo incluido
+### Archivo incluido
 - *Nombre:* dirty_cafe_sales.csv  
 - *Filas:* 10,000  
 - *Columnas:* 8  
@@ -60,7 +60,7 @@ Fue creado de forma intencionalmente “sucia”, es decir, incluye valores falt
 
 ---
 
-## 🛠Uso propuesto del Dataset
+## Uso propuesto del Dataset
 El dataset es ideal para practicar:
 
 - Limpieza de datos (missing values, valores inválidos, normalización).  
