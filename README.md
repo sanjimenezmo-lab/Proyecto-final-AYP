@@ -34,29 +34,19 @@ El database se pude visualizar [aquí](https://www.kaggle.com/datasets/prasad22/
 
 ---
 
-## Características del Dataset
+## Metodología y Procesamiento de Datos
 
-### Valores faltantes
-- Algunas columnas como Item, Payment Method o Location contenían valores vacíos o nulos.
+### Revisión previa a limpieza
+Se realizó una inspección técnica inicial que reveló:
+- Registros Duplicados: Se identificaron y eliminaron 534 registros redundantes para evitar sesgos estadísticos.
 
-### Valores inválidos
-- Se incluían entradas como "ERROR", "UNKNOWN" o números en formatos incorrectos.
+### Inconsistencias Lógicas
+- Detección de valores negativos en la columna Billing Amount, los cuales fueron corregidos aplicando valor absoluto.
 
-###  Coherencia económica
-- Los precios por producto siguen rangos definidos (ej. Coffee → $2).
+###  Estandarización
+- Normalización de nombres propios y formatos de texto.
 
-### Elementos incluidos en el menú
 
-| Ítem | Precio ($) |
-|------|------------|
-| Coffee | 2 |
-| Tea | 1.5 |
-| Sandwich | 4 |
-| Salad | 5 |
-| Cake | 3 |
-| Cookie | 1 |
-| Smoothie | 4 |
-| Juice | 3 |
 
 ---
 
@@ -70,30 +60,28 @@ El dataset es ideal para practicar:
 
 ---
 
-## ¿Qué se hizo en este proyecto?
+## Ingeniería de Características 
 
-En este trabajo se realizaron las siguientes etapas:
+Para profundizar el análisis, se creó una nueva variable crítica:
 
-### *1. Carga e inspección del archivo*
-- Se importó el CSV en Google Colab.
-- Se revisaron tipos de datos, dimensiones y estructura general.
+### *Length of Stay (LOS): Calculada como la diferencia entre la fecha de alta y la fecha de ingreso. Esta métrica es el estándar de oro para medir la eficiencia en la gestión de camas hospitalarias.*
 
-### *2. Limpieza profunda*
-- Reemplazo de valores inválidos (ERROR, UNKNOWN, None).
-- Conversión de tipos (fechas, números, categorías).
-- Normalización de campos categóricos.
-- Reconstrucción y validación del cálculo *Total Spent = Quantity × Price Per Unit*.
-- Creación de columnas derivadas:
-  - Transaction Month
-  - Transaction Weekday
-  - expected_total
-  - price_diff (para validar coherencia)
 
-### *3. Análisis Exploratorio (EDA)*
-- Resúmenes estadísticos.
-- Distribuciones de cantidad, precios y montos gastados.
-- Análisis temporal por mes y por día de la semana.
-- Detección de patrones y comportamiento del cliente.
+## * Análisis Exploratorio (EDA) con Enfoque Biomédico*
+
+### Se generaron visualizaciones técnicas (sin distracciones visuales) para responder preguntas de negocio:
+
+- Eficiencia Operativa: Análisis de la distribución de días de estancia por patología.
+- Gestión Financiera: Evaluación de costos promedio y totales por tipo de enfermedad.
+- Cadena de Suministro: Identificación del medicamento más prescrito (moda) para cada condición médica.
+- Recursos Humanos: Ranking de carga laboral por médico para optimización de turnos.
+
+### *Hallazgos Clave del Análisis*
+
+- Uniformidad Operativa: La distribución de pacientes por patología y tipo de ingreso es notablemente equilibrada, sugiriendo un modelo de demanda estable.
+- Estandarización de Protocolos: El promedio de días de estancia (LOS) se mantiene constante alrededor de 15.5 días para todas las condiciones, indicando protocolos de recuperación altamente estandarizados.
+- Modelo de Costos: Se encontró una correlación nula entre los días de estancia y el monto facturado. Esto sugiere que el hospital opera bajo un modelo de facturación por procedimiento (tipo GRD) y no por día-cama.
+- Estabilidad Financiera: Los costos promedio de tratamiento son homogéneos entre las diferentes enfermedades (~$25,500), facilitando la previsión presupuestaria.
 
 ### *4. Exportación final*
 - Se generó un CSV totalmente limpio y listo para nuevos análisis o modelos.
