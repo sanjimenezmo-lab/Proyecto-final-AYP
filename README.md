@@ -1,9 +1,9 @@
-# Proyecto de Limpieza y Análisis del Dataset Dirty Cafe Sales
+# Proyecto de Gestión de Datos y Análisis Hospitalario
 
 ##  Descripción del Proyecto  
-Este proyecto tiene como objetivo realizar un proceso completo de **limpieza de datos**, **transformación**, y **análisis exploratorio (EDA)** sobre el dataset Dirty Cafe Sales, un conjunto de datos diseñado específicamente para practicar habilidades de Data Cleaning y Wrangling.  
+Este proyecto consiste en un proceso integral de Ingeniería de Datos y Análisis Biomédico aplicado a un conjunto de datos hospitalarios. El objetivo principal fue transformar datos crudos en información accionable para la toma de decisiones clínicas y administrativas.
 
-El trabajo se desarrolló en [**Google Colab**](https://colab.research.google.com/drive/1mYxgLXkUzDUUMuCDPHOt4qNJMqOiIbt2?usp=sharing), utilizando **Python**, **Pandas**, **NumPy** y otras librerías del ecosistema científico.
+El trabajo se desarrolló en [**Google Colab**](https://colab.research.google.com/drive/16E0WffiXZ6UXxcDjH5p97sQ-x0zf3MKk?usp=sharing), utilizando **Python**, **Pandas**, **NumPy** y otras librerías del ecosistema científico.
 
 El resultado final es una base de datos completamente limpia, estructurada y lista para análisis más avanzados, como visualizaciones, modelos descriptivos o modelado predictivo.
 
@@ -11,9 +11,8 @@ El resultado final es una base de datos completamente limpia, estructurada y lis
 
 ## Información del Dataset
 
-El dataset *Dirty Cafe Sales* contiene *10,000 registros* sintéticos sobre transacciones realizadas en un café.  
-Fue creado de forma intencionalmente “sucia”, es decir, incluye valores faltantes, inconsistentes y errores comunes en datos reales, con el fin de practicar técnicas de limpieza.
-El database se pude visualizar [aquí](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training?resource=download)
+El dataset Healthcare Dataset contiene 55,500 registros sintéticos que simulan la operación de un sistema hospitalario moderno. Su estructura balanceada lo hace ideal para ejercicios de gestión sanitaria, modelado predictivo y análisis de eficiencia.
+El database se pude visualizar [aquí](https://www.kaggle.com/datasets/prasad22/healthcare-dataset)
 
 ### Archivo incluido
 - *Nombre:* dirty_cafe_sales.csv  
