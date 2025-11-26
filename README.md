@@ -15,22 +15,22 @@ El dataset Healthcare Dataset contiene 55,500 registros sintéticos que simulan 
 El database se pude visualizar [aquí](https://www.kaggle.com/datasets/prasad22/healthcare-dataset)
 
 ### Archivo incluido
-- *Nombre:* dirty_cafe_sales.csv  
-- *Filas:* 10,000  
-- *Columnas:* 8  
+- *Nombre:* healthcare_dataset.csv
+- *Filas:* 55500
+- *Columnas:* 15  
 
 ###  Descripción de Columnas
 
 | Columna            | Descripción | Ejemplo |
 |--------------------|-------------|---------|
-| *Transaction ID* | Identificador único de la transacción. Siempre presente. | TXN_1234567 |
-| *Item* | Producto comprado; puede tener valores faltantes o incorrectos. | Coffee, Sandwich, ERROR |
-| *Quantity* | Cantidad comprada; puede incluir valores inválidos. | 1, 3, UNKNOWN |
-| *Price Per Unit* | Precio unitario del ítem; puede estar incompleto o errado. | 2.00, 4.00 |
-| *Total Spent* | Total pagado (Quantity * Price). | 8.00, 12.00 |
-| *Payment Method* | Método de pago; puede contener None o UNKNOWN. | Cash, Credit Card |
-| *Location* | Lugar de la compra. | In-store, Takeaway |
-| *Transaction Date* | Fecha de la transacción; puede tener formato incorrecto. | 2023-01-01 |
+| *Medical Condition* | Patología diagnosticada al paciente. | Cancer, Obesity, Diabetes |
+| *Date of Admission* | Fecha de ingreso al hospital. | 2024-01-31 |
+| *Discharge Date* | Fecha de alta médica. | 2024-02-02 |
+| *Billing Amount* | Monto total facturado por el tratamiento. | 18856.3 |
+| *Doctor* | Médico tratante responsable. | Matthew Smith |
+| *Hospital* | Centro médico donde se realizó la atención. | Sons and Miller |
+| *Medication* | Medicamento principal prescrito. | Paracetamol, Ibuprofen |
+| *Test Results* | Resultado de las pruebas clínicas. | Normal, Abnormal |
 
 ---
 
