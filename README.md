@@ -1,9 +1,9 @@
-# Proyecto de Limpieza y Análisis del Dataset Dirty Cafe Sales
+# Proyecto de Gestión de Datos y Análisis Hospitalario
 
 ##  Descripción del Proyecto  
-Este proyecto tiene como objetivo realizar un proceso completo de **limpieza de datos**, **transformación**, y **análisis exploratorio (EDA)** sobre el dataset Dirty Cafe Sales, un conjunto de datos diseñado específicamente para practicar habilidades de Data Cleaning y Wrangling.  
+Este proyecto consiste en un proceso integral de Ingeniería de Datos y Análisis Biomédico aplicado a un conjunto de datos hospitalarios. El objetivo principal fue transformar datos crudos en información accionable para la toma de decisiones clínicas y administrativas.
 
-El trabajo se desarrolló en [**Google Colab**](https://colab.research.google.com/drive/1mYxgLXkUzDUUMuCDPHOt4qNJMqOiIbt2?usp=sharing), utilizando **Python**, **Pandas**, **NumPy** y otras librerías del ecosistema científico.
+El trabajo se desarrolló en [**Google Colab**](https://colab.research.google.com/drive/16E0WffiXZ6UXxcDjH5p97sQ-x0zf3MKk?usp=sharing), utilizando **Python**, **Pandas**, **NumPy** y otras librerías del ecosistema científico.
 
 El resultado final es una base de datos completamente limpia, estructurada y lista para análisis más avanzados, como visualizaciones, modelos descriptivos o modelado predictivo.
 
@@ -11,53 +11,42 @@ El resultado final es una base de datos completamente limpia, estructurada y lis
 
 ## Información del Dataset
 
-El dataset *Dirty Cafe Sales* contiene *10,000 registros* sintéticos sobre transacciones realizadas en un café.  
-Fue creado de forma intencionalmente “sucia”, es decir, incluye valores faltantes, inconsistentes y errores comunes en datos reales, con el fin de practicar técnicas de limpieza.
-El database se pude visualizar [aquí](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training?resource=download)
+El dataset Healthcare Dataset contiene 55,500 registros sintéticos que simulan la operación de un sistema hospitalario moderno. Su estructura balanceada lo hace ideal para ejercicios de gestión sanitaria, modelado predictivo y análisis de eficiencia.
+El database se pude visualizar [aquí](https://www.kaggle.com/datasets/prasad22/healthcare-dataset)
 
 ### Archivo incluido
-- *Nombre:* dirty_cafe_sales.csv  
-- *Filas:* 10,000  
-- *Columnas:* 8  
+- *Nombre:* healthcare_dataset.csv
+- *Filas:* 55500
+- *Columnas:* 15  
 
 ###  Descripción de Columnas
 
 | Columna            | Descripción | Ejemplo |
 |--------------------|-------------|---------|
-| *Transaction ID* | Identificador único de la transacción. Siempre presente. | TXN_1234567 |
-| *Item* | Producto comprado; puede tener valores faltantes o incorrectos. | Coffee, Sandwich, ERROR |
-| *Quantity* | Cantidad comprada; puede incluir valores inválidos. | 1, 3, UNKNOWN |
-| *Price Per Unit* | Precio unitario del ítem; puede estar incompleto o errado. | 2.00, 4.00 |
-| *Total Spent* | Total pagado (Quantity * Price). | 8.00, 12.00 |
-| *Payment Method* | Método de pago; puede contener None o UNKNOWN. | Cash, Credit Card |
-| *Location* | Lugar de la compra. | In-store, Takeaway |
-| *Transaction Date* | Fecha de la transacción; puede tener formato incorrecto. | 2023-01-01 |
+| *Medical Condition* | Patología diagnosticada al paciente. | Cancer, Obesity, Diabetes |
+| *Date of Admission* | Fecha de ingreso al hospital. | 2024-01-31 |
+| *Discharge Date* | Fecha de alta médica. | 2024-02-02 |
+| *Billing Amount* | Monto total facturado por el tratamiento. | 18856.3 |
+| *Doctor* | Médico tratante responsable. | Matthew Smith |
+| *Hospital* | Centro médico donde se realizó la atención. | Sons and Miller |
+| *Medication* | Medicamento principal prescrito. | Paracetamol, Ibuprofen |
+| *Test Results* | Resultado de las pruebas clínicas. | Normal, Abnormal |
 
 ---
 
-## Características del Dataset
+## Metodología y Procesamiento de Datos
 
-### Valores faltantes
-- Algunas columnas como Item, Payment Method o Location contenían valores vacíos o nulos.
+### Revisión previa a limpieza
+Se realizó una inspección técnica inicial que reveló:
+- Registros Duplicados: Se identificaron y eliminaron 534 registros redundantes para evitar sesgos estadísticos.
 
-### Valores inválidos
-- Se incluían entradas como "ERROR", "UNKNOWN" o números en formatos incorrectos.
+### Inconsistencias Lógicas
+- Detección de valores negativos en la columna Billing Amount, los cuales fueron corregidos aplicando valor absoluto.
 
-###  Coherencia económica
-- Los precios por producto siguen rangos definidos (ej. Coffee → $2).
+###  Estandarización
+- Normalización de nombres propios y formatos de texto.
 
-### Elementos incluidos en el menú
 
-| Ítem | Precio ($) |
-|------|------------|
-| Coffee | 2 |
-| Tea | 1.5 |
-| Sandwich | 4 |
-| Salad | 5 |
-| Cake | 3 |
-| Cookie | 1 |
-| Smoothie | 4 |
-| Juice | 3 |
 
 ---
 
@@ -71,30 +60,28 @@ El dataset es ideal para practicar:
 
 ---
 
-## ¿Qué se hizo en este proyecto?
+## Ingeniería de Características 
 
-En este trabajo se realizaron las siguientes etapas:
+Para profundizar el análisis, se creó una nueva variable crítica:
 
-### *1. Carga e inspección del archivo*
-- Se importó el CSV en Google Colab.
-- Se revisaron tipos de datos, dimensiones y estructura general.
+### *Length of Stay (LOS): Calculada como la diferencia entre la fecha de alta y la fecha de ingreso. Esta métrica es el estándar de oro para medir la eficiencia en la gestión de camas hospitalarias.*
 
-### *2. Limpieza profunda*
-- Reemplazo de valores inválidos (ERROR, UNKNOWN, None).
-- Conversión de tipos (fechas, números, categorías).
-- Normalización de campos categóricos.
-- Reconstrucción y validación del cálculo *Total Spent = Quantity × Price Per Unit*.
-- Creación de columnas derivadas:
-  - Transaction Month
-  - Transaction Weekday
-  - expected_total
-  - price_diff (para validar coherencia)
 
-### *3. Análisis Exploratorio (EDA)*
-- Resúmenes estadísticos.
-- Distribuciones de cantidad, precios y montos gastados.
-- Análisis temporal por mes y por día de la semana.
-- Detección de patrones y comportamiento del cliente.
+## * Análisis Exploratorio (EDA) con Enfoque Biomédico*
+
+### Se generaron visualizaciones técnicas (sin distracciones visuales) para responder preguntas de negocio:
+
+- Eficiencia Operativa: Análisis de la distribución de días de estancia por patología.
+- Gestión Financiera: Evaluación de costos promedio y totales por tipo de enfermedad.
+- Cadena de Suministro: Identificación del medicamento más prescrito (moda) para cada condición médica.
+- Recursos Humanos: Ranking de carga laboral por médico para optimización de turnos.
+
+### *Hallazgos Clave del Análisis*
+
+- Uniformidad Operativa: La distribución de pacientes por patología y tipo de ingreso es notablemente equilibrada, sugiriendo un modelo de demanda estable.
+- Estandarización de Protocolos: El promedio de días de estancia (LOS) se mantiene constante alrededor de 15.5 días para todas las condiciones, indicando protocolos de recuperación altamente estandarizados.
+- Modelo de Costos: Se encontró una correlación nula entre los días de estancia y el monto facturado. Esto sugiere que el hospital opera bajo un modelo de facturación por procedimiento (tipo GRD) y no por día-cama.
+- Estabilidad Financiera: Los costos promedio de tratamiento son homogéneos entre las diferentes enfermedades (~$25,500), facilitando la previsión presupuestaria.
 
 ### *4. Exportación final*
 - Se generó un CSV totalmente limpio y listo para nuevos análisis o modelos.
